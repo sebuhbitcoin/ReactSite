@@ -1,38 +1,185 @@
-.App {
+.app {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   align-items: center;
+  align-self: center;
+  align-content: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-self: center;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  border-color: #75f94c;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar {
+  display: flex;
+  flex-direction: row;
+  top: 0;
+  justify-content: center;
+  position: sticky;
+  /* border-width: 5px; */
+
+  background-color: blur(36px);
+  -webkit-backdrop-filter: blur(36px);
+  backdrop-filter: blur(36px);
+}
+
+.navbar-item {
+  display: flex;
+  flex-direction: row;
+  transition: 250ms;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-radius: 16px;
+}
+
+.navbar-item:hover {
+  background-color: #484848;
+  cursor: pointer;
+  /* scale: 95%; */
+}
+
+.navbar-item-text {
+  color: #75f94c;
+  font-weight: bold;
+  font-size: calc(6px + 1vw + 1.5vh);
+  font-family: "Roboto Mono", monospace;
+}
+
+.wordmark {
+  color: #75f94c;
+  font-weight: bold;
+  font-size: calc(4px + 1vw + 1vh);
+  font-family: "Roboto Mono", monospace;
+}
+
+.spacer {
+  padding: 1vw;
+}
+
+a {
+  text-decoration: none;
+  vertical-align: text-bottom;
+}
+
+.p {
+  color: #75f94c;
+  font-family: "Roboto Mono", monospace;
+}
+
+a {
+  text-decoration: underline;
+  color: #75f94c;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.padded-out {
+  max-width: calc(75vw);
+  /* padding-left: 25vh; */
+  /* padding-right: 25vh; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* .progress-container {
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 32px;
+  width: 15vw;
+}
+
+.progress {
+  border-radius: inherit;
+  height: 100%;
+  transition: 250ms;
+} */
+
+.inner-info-box {
+  display: flex;
+  padding: 1vw;
+  justify-content: center;
+}
+
+.progress-label {
+  float: left;
+  margin-right: 1em;
+  color: #75f94c;
+  font-size: 18px;
+  font-family: "Roboto Mono", monospace;
+}
+
+.footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* background-color: #000000; */
+  background-color: blur(36px);
+  -webkit-backdrop-filter: blur(36px);
+  backdrop-filter: blur(36px);
+  border-width: 5px;
+}
+
+.footer-text {
+  color: #75f94c;
+  font-size: 16px;
+  font-family: "Roboto Mono", monospace;
+}
+
+.bruh {
+  list-style-type: none;
+  list-style: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(130, 130, 130, 0.5);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  /* transition: 250ms; */
+  border-radius: 16px;
+}
+
+.render {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.button-item {
+  transition: 125ms;
+  cursor: pointer;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-item:hover {
+  background: #717171 !important;
+}
+
+.input {
+  color: #ffffff;
+  border-radius: 8px;
+  background-color: #000000;
+  padding: 6px;
+  width: 75;
+  height: 25px;
 }
