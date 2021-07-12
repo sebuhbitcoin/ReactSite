@@ -61,13 +61,6 @@ const App = () => {
   }
 
   async function getRewardsData(address) {
-    const b = await (
-      await fetch(
-        "https://bapi.teztools.io/token/KT1981tPmXh4KrUQKZpQKb55kREX7QGJcF3E_0/price"
-      )
-    ).json();
-    setTokenPrice(b.currentPrice);
-    alert("THE CURRENT PRICE IS " + b.currentPrice);
     // idk why the f*** it has to be like this
     var currentArray = [];
     const tzStatsResp = await (
@@ -83,6 +76,12 @@ const App = () => {
   useEffect(() => {
     async function a() {
       fetchData();
+      const b = await (
+        await fetch(
+          "https://bapi.teztools.io/token/KT1981tPmXh4KrUQKZpQKb55kREX7QGJcF3E_0/price"
+        )
+      ).json();
+      setTokenPrice(b.currentPrice);
     }
     a();
     getRewardsData("tz1bBFRBHoU3j534nC2ZTP22rSikHGtfrabT");
