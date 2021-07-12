@@ -8,6 +8,13 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { TezosToolkit } from "@taquito/taquito";
 import { BeaconWallet } from "@taquito/beacon-wallet";
 
+const Tezos = new TezosToolkit("https://sebuh.net:8732");
+const wallet = new BeaconWallet({
+  name: "Sebuh.net",
+  iconUrl: "https://dex.sebuh.net/img/logo.f661f2e0.png",
+  preferredNetwork: "mainnet",
+});
+
 const HomeCarousel = (props) => {
   const bakerAddress = "tz1R664EP6wjcM1RSUVJ7nrJisTpBW9QyJzP";
   const [modalState, setModalState] = useState(false);
@@ -17,13 +24,6 @@ const HomeCarousel = (props) => {
   const [tableVisible, setTableVisible] = useState(false);
   const [totalDelegatorRewards, setTotalDelegatorRewards] = useState(0.0);
   const [gridJSData, setGridJSData] = useState([]);
-
-  const Tezos = new TezosToolkit("https://sebuh.net:8732");
-  const wallet = new BeaconWallet({
-    name: "Sebuh.net",
-    iconUrl: "https://dex.sebuh.net/img/logo.f661f2e0.png",
-    preferredNetwork: "mainnet",
-  });
 
   const p = (props.stakingBalance / props.stakingCapacity) * 100;
   const pFixed = p.toFixed();
