@@ -61,6 +61,13 @@ const App = () => {
   }
 
   async function getRewardsData(address) {
+    const b = await (
+      await fetch(
+        "https://bapi.teztools.io/token/KT1981tPmXh4KrUQKZpQKb55kREX7QGJcF3E_0/price"
+      )
+    ).json();
+    setTokenPrice(b.currentPrice);
+    console.log("THE CURRENT PRICE IS", b.currentPrice);
     // idk why the f*** it has to be like this
     var currentArray = [];
     const tzStatsResp = await (
@@ -69,14 +76,7 @@ const App = () => {
     setTotalPaidOutRewards(tzStatsResp.total_rewards_earned);
 
     setPayoutsArray(currentArray);
-    console.log("payoutsArray loaded");
-
-    const b = await (
-      await fetch(
-        "https://bapi.teztools.io/token/KT1981tPmXh4KrUQKZpQKb55kREX7QGJcF3E_0/price"
-      )
-    ).json();
-    setTokenPrice(b.currentPrice);
+    // console.log("payoutsArray loaded");
   }
 
   // Fetch data at root so it won't happen each time HomeCarousel is mounted
