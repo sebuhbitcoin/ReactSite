@@ -13,7 +13,7 @@ const HomeCarousel = (props) => {
   const [modalState, setModalState] = useState(false);
   const [addressEntryState, setAddressEntryState] = useState("");
   const [inputBorderColor, setInputBorderColor] = useState("#75f94c");
-  const [bruh, setBruh] = useState();
+  // const [bruh, setBruh] = useState();
   const [tableVisible, setTableVisible] = useState(false);
   const [totalDelegatorRewards, setTotalDelegatorRewards] = useState(0.0);
   const [gridJSData, setGridJSData] = useState([]);
@@ -147,7 +147,6 @@ const HomeCarousel = (props) => {
           onClose={setModalState}
           delegatorAddress={addressEntryState}
           payoutsArray={props.payoutsArray}
-          modalData={bruh}
           modalTableVisible={tableVisible}
           gridJSData={gridJSData}
           delRewardsEarned={totalDelegatorRewards}

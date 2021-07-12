@@ -2,7 +2,6 @@ import Text from "./Text";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import Table from "./Table";
 import { Grid } from "gridjs-react";
 import "gridjs/dist/theme/mermaid.css";
 
@@ -111,8 +110,9 @@ const Modal = (props) => {
         justifyContent: "left",
         fontSize: "16px",
         color: "white",
-        height: "90% ",
-        width: "50%",
+        height: "75vh",
+        minHeight: "50vh",
+        width: "35%",
         transition: "all 125ms ease-in-out",
         opacity: props.visibility ? 1 : 0,
         visibility: props.visibility ? "visible" : "hidden",
@@ -161,6 +161,7 @@ const Modal = (props) => {
             sort={true}
             autoWidth={true}
             pagination={{ enabled: true, limit: 10 }}
+            height={"50vh"}
           />
         </div>
       </div>
