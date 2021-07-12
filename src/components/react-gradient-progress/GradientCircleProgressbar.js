@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
-import Text from "../Text";
 
 const CircleContainer = styled.div`
   display: inline-block;

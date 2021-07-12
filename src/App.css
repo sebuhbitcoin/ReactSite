@@ -24,7 +24,14 @@
 
   background-color: blur(36px);
   -webkit-backdrop-filter: blur(36px);
+
   backdrop-filter: blur(36px);
+}
+
+@-moz-document url-prefix() {
+  .navbar {
+    background-color: #000000;
+  }
 }
 
 .navbar-item {
@@ -78,7 +85,6 @@ a {
 }
 
 .padded-out {
-  max-width: calc(75vw);
   /* padding-left: 25vh; */
   /* padding-right: 25vh; */
   margin-left: auto;
@@ -119,11 +125,27 @@ a {
   bottom: 0;
   left: 0;
   width: 100%;
+  justify-content: center;
   /* background-color: #000000; */
   background-color: blur(36px);
   -webkit-backdrop-filter: blur(36px);
   backdrop-filter: blur(36px);
   border-width: 5px;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+}
+
+@-moz-document url-prefix() {
+  .footer {
+    background-color: #000000;
+  }
 }
 
 .footer-text {
@@ -138,7 +160,7 @@ a {
 }
 
 .modal {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -148,6 +170,13 @@ a {
   backdrop-filter: blur(18px);
   /* transition: 250ms; */
   border-radius: 16px;
+  padding: 0 12px 0 12px;
+}
+
+@-moz-document url-prefix() {
+  .modal {
+    background-color: #484848;
+  }
 }
 
 .render {
@@ -182,4 +211,40 @@ a {
   padding: 6px;
   width: 75;
   height: 25px;
+}
+
+button {
+  border-style: solid;
+  border-radius: 8px;
+  background-color: #484848 !important;
+  color: #ffffff;
+  font-family: "Roboto Mono", monospace;
+  transition: 250ms;
+  /* width: 30px;
+  height: 30px; */
+}
+
+button:hover {
+  background-color: #717171 !important;
+  cursor: pointer;
+  transform: scale(1.15) !important;
+  transition: 250ms;
+}
+
+/* button:hover:before {
+  transition: 250ms;
+  content: "Close";
+} */
+
+/* th,
+td {
+  border: 2px solid #2b2b2b;
+  border-radius: 16px;
+  margin: 0px 0px;
+  padding: 5px 5px 5px 5px;
+}
+
+*/
+table {
+  background-color: #484848;
 }

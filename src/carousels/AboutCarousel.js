@@ -1,11 +1,16 @@
+import React from "react";
 import Spacer from "../components/Spacer";
 import Text from "../components/Text";
-const AboutCarousel = () => {
-  const box = 200;
+const AboutCarousel = (props) => {
   return (
     <div>
       <Spacer />
-      <div className="padded-out">
+      <div
+        className="padded-out"
+        style={{
+          maxWidth: props.isBigScreen ? "65vw" : "100%",
+        }}
+      >
         <div className="container">
           <div style={{ padding: 10 }}>
             <Text>
@@ -23,6 +28,15 @@ const AboutCarousel = () => {
               year of research and consuming every bit of information about
               Tezos he could find The Sebuh.net Tezos Bakery was launched. On
               March 17, 2021 the bakery went live on Tezos Mainnet.
+            </Text>
+            <Text
+              customClassName="footer-text"
+              customColor="#d3d3d3"
+              customFontSize={14}
+            >
+              Powered by the <a href="https://tzkt.io/">TzKT</a>,{" "}
+              <a href="https://tzstats.com/">TzStats</a>, and{" "}
+              <a href="https://teztools.io/">TezTools</a> APIs
             </Text>
           </div>
         </div>

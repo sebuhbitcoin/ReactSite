@@ -1,3 +1,5 @@
+import React from "react";
+
 const InfoContainer = (props, { children }) => {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>

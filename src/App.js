@@ -10,12 +10,11 @@ import AboutCarousel from "./carousels/AboutCarousel";
 const App = () => {
   // Responsive media queries
   const isBigScreen = useMediaQuery({ query: "(min-width: 1224px)" });
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+  // const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
   // API related constants
   const bbBaseUri = "https://api.baking-bad.org/v2";
   const bakerAddress = "tz1R664EP6wjcM1RSUVJ7nrJisTpBW9QyJzP";
-  const cycleBakingStarted = 349;
 
   // State vars
   const [carousel, setCarousel] = useState(0);
@@ -25,7 +24,7 @@ const App = () => {
   const [delegators, setDelegators] = useState();
   const [totalPaidOutRewards, setTotalPaidOutRewards] = useState(0.0);
   const [payoutsArray, setPayoutsArray] = useState();
-  const [estimatedROI, setEstimatedROI] = useState(0.05);
+  const [tokenPrice, setTokenPrice] = useState(0.0);
 
   async function fetchData() {
     // Retrieve BB API Data
@@ -63,42 +62,36 @@ const App = () => {
 
   async function getRewardsData(address) {
     // idk why the f*** it has to be like this
-    const cycleresp = await (
-      await fetch("https://api.tzstats.com/explorer/cycle/head")
-    ).json();
-    const cycle = cycleresp.cycle;
-
-    var tpor = 0.0;
     var currentArray = [];
     const tzStatsResp = await (
       await fetch(`https://api.tzstats.com/explorer/account/${bakerAddress}`)
     ).json();
     setTotalPaidOutRewards(tzStatsResp.total_rewards_earned);
-    // for (var i = cycleBakingStarted; i < cycle; i++) {
-    //   const rewardsResp = await (
-    //     await fetch(`${bbBaseUri}/rewards/${bakerAddress}?cycle=${i}`)
-    //   ).json();
-    //   // console.log(`${bbBaseUri}/rewards/${bakerAddress}?cycle=${i}`);
-    //   // console.log(rewardsResp.payouts);
-    //   currentArray.push(rewardsResp.payouts);
-    // }
+
     setPayoutsArray(currentArray);
     console.log("payoutsArray loaded");
+
+    const b = await (
+      await fetch(
+        "https://bapi.teztools.io/token/KT1981tPmXh4KrUQKZpQKb55kREX7QGJcF3E_0/price"
+      )
+    ).json();
+    setTokenPrice(b.currentPrice);
   }
 
   // Fetch data at root so it won't happen each time HomeCarousel is mounted
   useEffect(() => {
-    async function bruh() {
+    async function a() {
       fetchData();
     }
-    bruh();
-    // getRewardsData("tz1bBFRBHoU3j534nC2ZTP22rSikHGtfrabT");
+    a();
+    getRewardsData("tz1bBFRBHoU3j534nC2ZTP22rSikHGtfrabT");
   }, []);
 
   const NavBar = () => {
     return (
       <div className="navbar">
-        <NavBarItem text="Dashboard" onClick={() => setCarousel(0)} />
+        <NavBarItem text="Home" onClick={() => setCarousel(0)} />
         <Spacer />
         <NavBarItem
           text="Farm"
@@ -126,8 +119,9 @@ const App = () => {
         delegators={delegators}
         totalPaidOutRewards={totalPaidOutRewards}
         payoutsArray={payoutsArray}
+        tokenPrice={tokenPrice}
       />,
-      <AboutCarousel />,
+      <AboutCarousel isBigScreen={isBigScreen} />,
     ];
     return (
       <div
@@ -199,6 +193,6 @@ const App = () => {
   );
 };
 
-const NavDrawer = () => {};
+// const NavDrawer = () => {};
 
 export default App;

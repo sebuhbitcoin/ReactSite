@@ -1,3 +1,5 @@
+import React from "react";
+
 const Text = (props, { children }) => {
   const colors = ["#f94c4c", "#f78a00", "#cfc500", "#75f94c"];
   var ind = 3;
