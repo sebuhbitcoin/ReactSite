@@ -67,7 +67,7 @@ const App = () => {
       )
     ).json();
     setTokenPrice(b.currentPrice);
-    console.log("THE CURRENT PRICE IS", b.currentPrice);
+    alert("THE CURRENT PRICE IS " + b.currentPrice);
     // idk why the f*** it has to be like this
     var currentArray = [];
     const tzStatsResp = await (
