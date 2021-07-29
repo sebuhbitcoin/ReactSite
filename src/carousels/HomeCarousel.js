@@ -7,7 +7,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { TezosToolkit } from "@taquito/taquito";
 import { BeaconWallet } from "@taquito/beacon-wallet";
+import { RpcClient } from "@taquito/rpc";
 
+const client = new RpcClient(
+  "https://florencenet-tezos.giganode.io",
+  "NetXjD3HPJJjmcd"
+);
 const Tezos = new TezosToolkit("https://sebuh.net:8732");
 const wallet = new BeaconWallet({
   name: "Sebuh.net",
@@ -50,7 +55,10 @@ const HomeCarousel = (props) => {
     const data = [];
     const g = [];
 
-    apiResponse.reverse().forEach((element) => {
+    const shifted = apiResponse.reverse();
+    shifted.shift(0, 6);
+
+    shifted.reverse().forEach((element) => {
       if (element.baker.address === bakerAddress) {
         var thisCycleReward =
           (element.futureBlockRewards +
@@ -291,7 +299,6 @@ const HomeCarousel = (props) => {
                 fontSize: "1.75vh",
               }}
               onClick={() => {
-                
                 connectAndDelegateWallet();
               }}
             >
