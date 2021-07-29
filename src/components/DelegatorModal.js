@@ -24,8 +24,7 @@ const Modal = (props) => {
         justifyContent: "left",
         fontSize: "16px",
         color: "white",
-        height: "75vh",
-        minHeight: "50vh",
+        minHeight: "82.5vh",
         width: "35%",
         transition: "all 125ms ease-in-out",
         opacity: props.visibility ? 1 : 0,
@@ -77,12 +76,11 @@ const Modal = (props) => {
             pagination={{ enabled: true, limit: 10 }}
             height={"50vh"}
           />
+          <Text customFontSize="12px">
+            Actual rewards may vary.
+            <br /> This information is an estimation of expected rewards.
+          </Text>
         </div>
-        <br />
-        <Text>
-          Actual rewards may vary.
-          <br /> This information is an estimation of expected rewards.
-        </Text>
       </div>
     </div>
   );
