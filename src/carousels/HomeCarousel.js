@@ -291,6 +291,7 @@ const HomeCarousel = (props) => {
                 fontSize: "1.75vh",
               }}
               onClick={() => {
+                
                 connectAndDelegateWallet();
               }}
             >
