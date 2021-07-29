@@ -116,7 +116,7 @@ const HomeCarousel = (props) => {
     const colors = ["#f94c4c", "#f78a00", "#cfc500", "#75f94c"];
 
     var ind = 3;
-
+    var val = props.percentage > 100 ? 100 : props.percentage;
     if (props.percentage >= 90) ind = 0;
     else if (props.percentage >= 50) ind = 2;
     else if (props.percentage >= 75) ind = 1;
@@ -124,7 +124,7 @@ const HomeCarousel = (props) => {
 
     return (
       <CircleProgress
-        percentage={Number(props.percentage)}
+        percentage={Number(val)}
         strokeWidth={props.strokeWidth}
         fontSize={String(props.fontSize)}
         primaryColor={[colors[ind], colors[ind]]}
