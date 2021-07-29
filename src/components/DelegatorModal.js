@@ -6,92 +6,6 @@ import { Grid } from "gridjs-react";
 import "gridjs/dist/theme/mermaid.css";
 
 const Modal = (props) => {
-  // const [bruh, setBruh] = useState();
-  // const [tableVisible, setTableVisible] = useState(false);
-
-  // const calculateDelegatorRewards = async () => {
-  //   // TODO: This has to be implemented for this code
-  //   // var t_rewards = (
-  //   //   (data[i].futureBlockRewards +
-  //   //     data[i].ownBlockRewards +
-  //   //     data[i].extraBlockRewards +
-  //   //     data[i].futureEndorsementRewards +
-  //   //     data[i].endorsementRewards +
-  //   //     data[i].ownBlockFees +
-  //   //     data[i].extraBlockFees +
-  //   //     data[i].revelationRewards) /
-  //   //   1000000
-  //   // ).toFixed(6);
-
-  //   // // Balance
-  //   // var del_balance = (data[i].balance / 1000000).toFixed(6);
-  //   // Staking balance
-  //   // var staking_balance = (data[i].stakingBalance / 1000000).toFixed(6);
-  //   // // Share
-  //   // var del_share =
-  //   // ((data[i].balance / data[i].stakingBalance) * 100).toFixed(3) + "%";
-
-  //   // // Rewards
-  //   // var del_rewards = (
-  //   //   t_rewards *
-  //   //   (del_balance / staking_balance) *
-  //   //   (1 - fees / 100)
-  //   // ).toFixed(6);
-
-  //   const apiResponse = await (
-  //     await fetch(
-  //       `https://api.tzkt.io/v1/rewards/delegators/${props.delegatorAddress}?limit=1000`
-  //     )
-  //   ).json();
-
-  //   console.log(apiResponse);
-
-  //   const data = [];
-
-  //   apiResponse.reverse().forEach((element) => {
-  //     if (element.baker.address === bakerAddress) {
-  //       console.log(element);
-  //       var thisCycleReward =
-  //         (element.futureBlockRewards +
-  //           element.ownBlockRewards +
-  //           element.extraBlockRewards +
-  //           element.futureEndorsementRewards +
-  //           element.endorsementRewards +
-  //           element.ownBlockFees +
-  //           element.extraBlockFees +
-  //           element.revelationRewards) /
-  //         1000000;
-
-  //       var balance = (element.balance / 1000000).toFixed(6);
-  //       console.log("Balance now is", balance);
-
-  //       var stakingBalance = (element.stakingBalance / 1000000).toFixed(6);
-
-  //       var reward = (
-  //         thisCycleReward *
-  //         (balance / stakingBalance) *
-  //         0.95
-  //       ).toFixed(6);
-
-  //       totalRewardsEarned += Number(reward);
-
-  //       console.log(element.cycle);
-  //       console.log(reward);
-
-  //       data.push({
-  //         cycle: element.cycle,
-  //         balance: element.balance,
-  //         amount: reward,
-  //       });
-  //       console.log("For cycle", element.cycle, reward);
-  //     } else console.log("Delegator not delegated for cycle");
-  //   });
-  //   console.log("Earned", totalRewardsEarned, "in total");
-  //   setBruh(data);
-  //   setTableVisible(true);
-  //   console.log(bruh);
-  // };
-
   const truncate = (str) =>
     `${str.substr(0, 7)}...${str.substr(str.length - 5, 5)}`;
 
@@ -164,6 +78,11 @@ const Modal = (props) => {
             height={"50vh"}
           />
         </div>
+        <br />
+        <Text>
+          Actual rewards may vary.
+          <br /> This information is an estimation of expected rewards.
+        </Text>
       </div>
     </div>
   );
