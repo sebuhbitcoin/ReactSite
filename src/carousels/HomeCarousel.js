@@ -55,10 +55,13 @@ const HomeCarousel = (props) => {
     const data = [];
     const g = [];
 
-    const shifted = apiResponse.reverse();
-    shifted.shift(0, 6);
+    const shifted = apiResponse;
+    // .reverse();
+    shifted.splice(0, 6);
+    console.log(shifted);
+    shifted.reverse();
 
-    shifted.reverse().forEach((element) => {
+    shifted.forEach((element) => {
       if (element.baker.address === bakerAddress) {
         var thisCycleReward =
           (element.futureBlockRewards +

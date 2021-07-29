@@ -25,7 +25,7 @@ const Modal = (props) => {
         fontSize: "16px",
         color: "white",
         minHeight: "82.5vh",
-        width: "35%",
+        minWidth: "40%",
         transition: "all 125ms ease-in-out",
         opacity: props.visibility ? 1 : 0,
         visibility: props.visibility ? "visible" : "hidden",
